@@ -1,0 +1,13 @@
+{
+  "name": "npmguard",
+  "version": "1.0.0",
+  "description": "Blacklist Dependency Analyzer",
+  "license": "MIT",
+  "author": "ACHRAF DRIOUICHE",
+  "type": "commonjs",
+  "main": "analyzer.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": []
+}
