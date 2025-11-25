@@ -1,13 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-// تحميل القائمة السوداء من ملف نصي
 const blacklist = fs.readFileSync("blacklist.txt", "utf-8")
   .split("\n")
   .map(p => p.trim())
   .filter(Boolean);
 
-// مسار package.json
 const pkgPath = path.join(process.cwd(), "package.json");
 
 if (!fs.existsSync(pkgPath)) {
@@ -15,7 +13,6 @@ if (!fs.existsSync(pkgPath)) {
   process.exit(1);
 }
 
-// قراءة dependencies
 const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
 const allDeps = {
   ...pkg.dependencies,
@@ -35,7 +32,6 @@ for (const dep in allDeps) {
   }
 }
 
-// إخراج النتيجة
 if (results.length === 0) {
   console.log("✅ SYSTEM CLEAN - No critical packages found");
 } else {
